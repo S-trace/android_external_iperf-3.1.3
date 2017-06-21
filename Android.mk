@@ -17,24 +17,22 @@ iperf_SOURCES = \
     src/tcp_info.c \
     src/tcp_window_size.c \
     src/timer.c \
-    src/t_timer.c \
-    src/t_units.c \
-    src/t_uuid.c \
     src/units.c
 
 LOCAL_SRC_FILES := $(iperf_SOURCES)
-
-LOCAL_STATIC_LIBRARIES := libc
-
 
 LOCAL_C_INCLUDES :=$(LOCAL_PATH)/src 
 
 LOCAL_CFLAGS+=-O3 -g -W -Wall -Wno-unused 
 
-LOCAL_MODULE:= iperf
+LOCAL_MODULE:= iperf3
+
 LOCAL_MODULE_TAGS := debug eng optional
 
-LOCAL_FORCE_STATIC_EXECUTABLE := true
+# Uncomment this for static build
+# LOCAL_STATIC_LIBRARIES := libc libm
+# LOCAL_FORCE_STATIC_EXECUTABLE := true
+
 include $(BUILD_EXECUTABLE)
 
 
